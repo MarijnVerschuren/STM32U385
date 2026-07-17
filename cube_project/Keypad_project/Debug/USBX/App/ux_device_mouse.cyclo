@@ -1,0 +1,4 @@
+../USBX/App/ux_device_mouse.c:65:6:USBD_HID_Mouse_Activate	1
+../USBX/App/ux_device_mouse.c:80:6:USBD_HID_Mouse_Deactivate	1
+../USBX/App/ux_device_mouse.c:97:6:USBD_HID_Mouse_SetReport	1
+../USBX/App/ux_device_mouse.c:118:6:USBD_HID_Mouse_GetReport	1

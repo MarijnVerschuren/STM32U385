@@ -1,0 +1,9 @@
+../Drivers/STM32U3xx_HAL_Driver/Src/stm32u3xx_hal_cryp_ex.c:105:19:HAL_CRYPEx_AESGCM_GenerateAuthTAG	72	static
+../Drivers/STM32U3xx_HAL_Driver/Src/stm32u3xx_hal_cryp_ex.c:221:19:HAL_CRYPEx_AESCCM_GenerateAuthTAG	40	static
+../Drivers/STM32U3xx_HAL_Driver/Src/stm32u3xx_hal_cryp_ex.c:342:19:HAL_CRYPEx_WrapKey	32	static
+../Drivers/STM32U3xx_HAL_Driver/Src/stm32u3xx_hal_cryp_ex.c:387:19:HAL_CRYPEx_UnwrapKey	32	static
+../Drivers/STM32U3xx_HAL_Driver/Src/stm32u3xx_hal_cryp_ex.c:448:19:HAL_CRYPEx_EncryptSharedKey	32	static
+../Drivers/STM32U3xx_HAL_Driver/Src/stm32u3xx_hal_cryp_ex.c:501:19:HAL_CRYPEx_DecryptSharedKey	32	static
+../Drivers/STM32U3xx_HAL_Driver/Src/stm32u3xx_hal_cryp_ex.c:559:26:CRYPEx_KeyDecrypt	32	static
+../Drivers/STM32U3xx_HAL_Driver/Src/stm32u3xx_hal_cryp_ex.c:668:26:CRYPEx_KeyEncrypt	32	static
+../Drivers/STM32U3xx_HAL_Driver/Src/stm32u3xx_hal_cryp_ex.c:757:26:CRYPEx_WaitFLAG	32	static
