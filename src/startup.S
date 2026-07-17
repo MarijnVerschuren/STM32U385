@@ -1,4 +1,5 @@
 .syntax unified
+.cpu cortex-m33
 .thumb
 
 .global reset_handler
@@ -12,14 +13,17 @@
 .word _bss_start
 .word _bss_end
 .word _heap_start
+.word _stack_start
 
 
 // reset_handler
-.section .text.reset_handler
+.section .text.reset_handler, "ax", %progbits
 .type reset_handler, %function
+.thumb_func
 reset_handler:
 	ldr sp, =_stack_end				// set stack pointer
-	bl sys_reset					// reset system state
+	ldr r0, =_stack_start
+	msr MSPLIM, r0
 
 	// copy_data
 	ldr r0, =_data_load				// src
@@ -49,6 +53,6 @@ zero_bss_condition:
 	bcc zero_bss					// branch if dst < end
 
 	bl main							// call main
-	bx lr							// return
+	b .
 .size reset_handler, .-reset_handler
 

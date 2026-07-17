@@ -14,10 +14,9 @@
  * */
 
 
-
 /*!<
  * app
  * */
 int main(void) {
-
+	for (;;);
 }
