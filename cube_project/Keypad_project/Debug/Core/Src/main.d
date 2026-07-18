@@ -28,7 +28,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_hash.h \
- ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_icache.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_lptim.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_ll_lptim.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_mmc.h \
@@ -39,6 +38,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pcd_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pwr.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pwr_ex.h \
+ ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rng.h \
+ ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rng_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi.h \
@@ -53,7 +54,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h \
  ../USBX/App/ux_device_mouse.h ../USBX/App/ux_device_keyboard.h \
  ../USBX/App/ux_device_descriptors.h ../USBX/Target/ux_stm32_config.h \
- ../Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32.h
+ ../Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32.h \
+ /home/marijn/Github/STM32U385/cube_project/Keypad_project/software/inc/PAL.h \
+ /home/marijn/Github/STM32U385/cube_project/Keypad_project/software/inc/base.h \
+ ../Drivers/CMSIS/Device/ST/STM32U3xx/Include/stm32u385xx.h
 ../Core/Inc/main.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal.h:
 ../Core/Inc/stm32u3xx_hal_conf.h:
@@ -84,7 +88,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_hash.h:
-../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_icache.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_lptim.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_ll_lptim.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_mmc.h:
@@ -95,6 +98,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pcd_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pwr.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pwr_ex.h:
+../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rng.h:
+../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rng_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi.h:
@@ -114,3 +119,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../USBX/App/ux_device_descriptors.h:
 ../USBX/Target/ux_stm32_config.h:
 ../Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32.h:
+/home/marijn/Github/STM32U385/cube_project/Keypad_project/software/inc/PAL.h:
+/home/marijn/Github/STM32U385/cube_project/Keypad_project/software/inc/base.h:
+../Drivers/CMSIS/Device/ST/STM32U3xx/Include/stm32u385xx.h:

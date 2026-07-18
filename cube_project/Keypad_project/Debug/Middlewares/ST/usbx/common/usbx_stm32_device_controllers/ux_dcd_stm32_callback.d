@@ -35,7 +35,6 @@ Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_callback.o
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_hash.h \
- ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_icache.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_lptim.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_ll_lptim.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_mmc.h \
@@ -46,6 +45,8 @@ Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_callback.o
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pcd_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pwr.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pwr_ex.h \
+ ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rng.h \
+ ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rng_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi.h \
@@ -90,7 +91,6 @@ Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_callback.o
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_hash.h:
-../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_icache.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_lptim.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_ll_lptim.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_mmc.h:
@@ -101,6 +101,8 @@ Middlewares/ST/usbx/common/usbx_stm32_device_controllers/ux_dcd_stm32_callback.o
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pcd_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pwr.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_pwr_ex.h:
+../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rng.h:
+../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rng_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi.h:

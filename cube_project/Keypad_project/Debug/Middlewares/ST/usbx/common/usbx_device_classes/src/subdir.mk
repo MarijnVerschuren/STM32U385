@@ -24,26 +24,6 @@ C_SRCS += \
 ../Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_tasks_run.c \
 ../Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_uninitialize.c 
 
-OBJS += \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_control_request.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_deactivate.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_descriptor_send.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_entry.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_event_get.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_event_set.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_initialize.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read_run.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_event_free.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_event_get.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_tasks_run.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_uninitialize.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_report_get.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_report_set.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_tasks_run.o \
-./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_uninitialize.o 
-
 C_DEPS += \
 ./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.d \
 ./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_control_request.d \
@@ -64,10 +44,30 @@ C_DEPS += \
 ./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_tasks_run.d \
 ./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_uninitialize.d 
 
+OBJS += \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_activate.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_control_request.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_deactivate.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_descriptor_send.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_entry.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_event_get.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_event_set.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_initialize.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_read_run.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_event_free.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_event_get.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_initialize.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_tasks_run.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_receiver_uninitialize.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_report_get.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_report_set.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_tasks_run.o \
+./Middlewares/ST/usbx/common/usbx_device_classes/src/ux_device_class_hid_uninitialize.o 
+
 
 # Each subdirectory must supply rules for building sources it contributes
 Middlewares/ST/usbx/common/usbx_device_classes/src/%.o Middlewares/ST/usbx/common/usbx_device_classes/src/%.su Middlewares/ST/usbx/common/usbx_device_classes/src/%.cyclo: ../Middlewares/ST/usbx/common/usbx_device_classes/src/%.c Middlewares/ST/usbx/common/usbx_device_classes/src/subdir.mk
-	arm-none-eabi-gcc "$<" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUX_INCLUDE_USER_DEFINE_FILE -DUSE_HAL_DRIVER -DSTM32U385xx -c -I../USBX/App -I../USBX/Target -I../Core/Inc -I../Drivers/STM32U3xx_HAL_Driver/Inc -I../Drivers/STM32U3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32U3xx/Include -I../Middlewares/ST/usbx/common/core/inc -I../Middlewares/ST/usbx/ports/generic/inc -I../Middlewares/ST/usbx/common/usbx_stm32_device_controllers -I../Middlewares/ST/usbx/common/usbx_device_classes/inc -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUX_INCLUDE_USER_DEFINE_FILE -DUSE_HAL_DRIVER -DSTM32U385xx -c -I../USBX/App -I../USBX/Target -I../Core/Inc -I../Drivers/STM32U3xx_HAL_Driver/Inc -I../Drivers/STM32U3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32U3xx/Include -I../Middlewares/ST/usbx/common/core/inc -I../Middlewares/ST/usbx/ports/generic/inc -I../Middlewares/ST/usbx/common/usbx_stm32_device_controllers -I../Middlewares/ST/usbx/common/usbx_device_classes/inc -I../Drivers/CMSIS/Include -I"/home/marijn/Github/STM32U385/cube_project/Keypad_project/software/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 
 clean: clean-Middlewares-2f-ST-2f-usbx-2f-common-2f-usbx_device_classes-2f-src
 

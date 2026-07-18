@@ -1,0 +1,2 @@
+../software/src/PAL.c:8:6:GPIO_toggle	16	static
+../software/src/PAL.c:12:6:delay_ms	16	static

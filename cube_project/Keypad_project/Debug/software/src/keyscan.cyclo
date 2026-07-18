@@ -1,0 +1,1 @@
+../software/src/keyscan.cpp:5:1:key_scan::key_scan(volatile uint32_t*, uint16_t, const volatile uint32_t*, uint16_t)	1

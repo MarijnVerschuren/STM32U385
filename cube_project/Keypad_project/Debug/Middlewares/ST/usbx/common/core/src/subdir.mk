@@ -67,69 +67,6 @@ C_SRCS += \
 ../Middlewares/ST/usbx/common/core/src/ux_utility_unicode_to_string.c \
 ../Middlewares/ST/usbx/common/core/src/ux_utility_virtual_address.c 
 
-OBJS += \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_alternate_setting_get.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_alternate_setting_set.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_class_register.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_class_unregister.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_clear_feature.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_configuration_get.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_configuration_set.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_control_request_process.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_disconnect.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_endpoint_stall.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_get_status.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_host_wakeup.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_initialize.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_interface_delete.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_interface_get.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_interface_set.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_interface_start.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_microsoft_extension_register.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_set_feature.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_tasks_run.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_transfer_abort.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_transfer_all_request_abort.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_transfer_request.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_transfer_run.o \
-./Middlewares/ST/usbx/common/core/src/ux_device_stack_uninitialize.o \
-./Middlewares/ST/usbx/common/core/src/ux_system_error_handler.o \
-./Middlewares/ST/usbx/common/core/src/ux_system_initialize.o \
-./Middlewares/ST/usbx/common/core/src/ux_system_tasks_run.o \
-./Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_debug_callback_register.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_debug_log.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_delay_ms.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_descriptor_pack.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_descriptor_parse.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_long_get.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_long_get_big_endian.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_long_put.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_long_put_big_endian.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate_add_safe.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate_mulc_safe.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate_mulv_safe.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_memory_copy.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_memory_free.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_memory_set.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_physical_address.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_set_interrupt_handler.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_short_get.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_short_get_big_endian.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_short_put.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_short_put_big_endian.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_string_length_check.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_string_length_get.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_string_to_unicode.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_unicode_to_string.o \
-./Middlewares/ST/usbx/common/core/src/ux_utility_virtual_address.o 
-
 C_DEPS += \
 ./Middlewares/ST/usbx/common/core/src/ux_device_stack_alternate_setting_get.d \
 ./Middlewares/ST/usbx/common/core/src/ux_device_stack_alternate_setting_set.d \
@@ -193,10 +130,73 @@ C_DEPS += \
 ./Middlewares/ST/usbx/common/core/src/ux_utility_unicode_to_string.d \
 ./Middlewares/ST/usbx/common/core/src/ux_utility_virtual_address.d 
 
+OBJS += \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_alternate_setting_get.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_alternate_setting_set.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_class_register.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_class_unregister.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_clear_feature.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_configuration_get.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_configuration_set.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_control_request_process.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_descriptor_send.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_disconnect.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_endpoint_stall.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_get_status.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_host_wakeup.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_initialize.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_interface_delete.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_interface_get.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_interface_set.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_interface_start.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_microsoft_extension_register.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_set_feature.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_tasks_run.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_transfer_abort.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_transfer_all_request_abort.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_transfer_request.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_transfer_run.o \
+./Middlewares/ST/usbx/common/core/src/ux_device_stack_uninitialize.o \
+./Middlewares/ST/usbx/common/core/src/ux_system_error_handler.o \
+./Middlewares/ST/usbx/common/core/src/ux_system_initialize.o \
+./Middlewares/ST/usbx/common/core/src/ux_system_tasks_run.o \
+./Middlewares/ST/usbx/common/core/src/ux_system_uninitialize.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_debug_callback_register.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_debug_log.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_delay_ms.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_descriptor_pack.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_descriptor_parse.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_error_callback_register.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_long_get.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_long_get_big_endian.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_long_put.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_long_put_big_endian.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate_add_safe.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate_mulc_safe.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_memory_allocate_mulv_safe.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_create.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_memory_byte_pool_search.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_memory_compare.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_memory_copy.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_memory_free.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_memory_set.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_physical_address.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_set_interrupt_handler.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_short_get.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_short_get_big_endian.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_short_put.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_short_put_big_endian.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_string_length_check.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_string_length_get.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_string_to_unicode.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_unicode_to_string.o \
+./Middlewares/ST/usbx/common/core/src/ux_utility_virtual_address.o 
+
 
 # Each subdirectory must supply rules for building sources it contributes
 Middlewares/ST/usbx/common/core/src/%.o Middlewares/ST/usbx/common/core/src/%.su Middlewares/ST/usbx/common/core/src/%.cyclo: ../Middlewares/ST/usbx/common/core/src/%.c Middlewares/ST/usbx/common/core/src/subdir.mk
-	arm-none-eabi-gcc "$<" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUX_INCLUDE_USER_DEFINE_FILE -DUSE_HAL_DRIVER -DSTM32U385xx -c -I../USBX/App -I../USBX/Target -I../Core/Inc -I../Drivers/STM32U3xx_HAL_Driver/Inc -I../Drivers/STM32U3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32U3xx/Include -I../Middlewares/ST/usbx/common/core/inc -I../Middlewares/ST/usbx/ports/generic/inc -I../Middlewares/ST/usbx/common/usbx_stm32_device_controllers -I../Middlewares/ST/usbx/common/usbx_device_classes/inc -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m33 -std=gnu11 -g3 -DDEBUG -DUX_INCLUDE_USER_DEFINE_FILE -DUSE_HAL_DRIVER -DSTM32U385xx -c -I../USBX/App -I../USBX/Target -I../Core/Inc -I../Drivers/STM32U3xx_HAL_Driver/Inc -I../Drivers/STM32U3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32U3xx/Include -I../Middlewares/ST/usbx/common/core/inc -I../Middlewares/ST/usbx/ports/generic/inc -I../Middlewares/ST/usbx/common/usbx_stm32_device_controllers -I../Middlewares/ST/usbx/common/usbx_device_classes/inc -I../Drivers/CMSIS/Include -I"/home/marijn/Github/STM32U385/cube_project/Keypad_project/software/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 
 clean: clean-Middlewares-2f-ST-2f-usbx-2f-common-2f-core-2f-src
 
