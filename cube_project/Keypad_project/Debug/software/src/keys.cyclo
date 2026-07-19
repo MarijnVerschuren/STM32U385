@@ -1,0 +1,13 @@
+../software/src/keys.cpp:6:1:keys_t::keys_t(const uint8_t*, uint8_t, uint8_t)	1
+../software/src/keys.cpp:10:1:keys_t::~keys_t()	1
+../software/src/keys.cpp:15:9:uint8_t keys_t::width() const	1
+../software/src/keys.cpp:16:9:uint8_t keys_t::height() const	1
+../software/src/keys.cpp:17:10:uint8_t* keys_t::begin()	1
+../software/src/keys.cpp:18:10:uint8_t* keys_t::end()	1
+../software/src/keys.cpp:25:1:key_scan_t::key_scan_t(volatile uint32_t*, uint16_t, const volatile uint32_t*, uint16_t, const uint8_t*)	1
+../software/src/keys.cpp:38:1:key_scan_t::~key_scan_t()	1
+../software/src/keys.cpp:46:9:uint8_t key_scan_t::update()	2
+../software/src/keys.cpp:59:6:void key_scan_t::update_active()	4
+../software/src/keys.cpp:70:10:uint8_t* key_scan_t::begin()	1
+../software/src/keys.cpp:78:6:void key_scan_t::process_bitmask(uint8_t, uint16_t)	3
+../software/src/keys.cpp:92:1:key_send_t::key_send_t(const uint8_t*, uint8_t, uint8_t)	1

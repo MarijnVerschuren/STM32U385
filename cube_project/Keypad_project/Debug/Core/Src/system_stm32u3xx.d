@@ -28,6 +28,7 @@ Core/Src/system_stm32u3xx.o: ../Core/Src/system_stm32u3xx.c \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_hash.h \
+ ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_icache.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_lptim.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_ll_lptim.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_mmc.h \
@@ -44,6 +45,8 @@ Core/Src/system_stm32u3xx.o: ../Core/Src/system_stm32u3xx.c \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi_ex.h \
+ ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_tim.h \
+ ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_tim_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_uart.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_uart_ex.h
 ../Drivers/CMSIS/Device/ST/STM32U3xx/Include/stm32u3xx.h:
@@ -75,6 +78,7 @@ Core/Src/system_stm32u3xx.o: ../Core/Src/system_stm32u3xx.c \
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_hash.h:
+../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_icache.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_lptim.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_ll_lptim.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_mmc.h:
@@ -91,5 +95,7 @@ Core/Src/system_stm32u3xx.o: ../Core/Src/system_stm32u3xx.c \
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi_ex.h:
+../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_tim.h:
+../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_tim_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_uart.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_uart_ex.h:

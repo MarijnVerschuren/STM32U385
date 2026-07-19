@@ -42,6 +42,7 @@ extern "C" {
 #define USBD_HID_CLASS_ACTIVATED                       1U
 #define USBD_HID_MOUSE_ACTIVATED                       1U
 #define USBD_HID_KEYBOARD_ACTIVATED                    1U
+#define USBD_HID_CUSTOM_ACTIVATED                      1U
 
 #define USBD_CONFIG_MAXPOWER                           25U
 #define USBD_COMPOSITE_USE_IAD                         1U
@@ -292,6 +293,13 @@ uint16_t USBD_HID_ReportDesc_length(uint8_t hid_type);
 #define USBD_HID_KEYBOARD_EPIN_HS_MPS                 4U
 #define USBD_HID_KEYBOARD_EPIN_FS_BINTERVAL           5U
 #define USBD_HID_KEYBOARD_EPIN_HS_BINTERVAL           5U
+
+/* Device HID Custom */
+#define USBD_HID_CUSTOM_EPIN_ADDR                     0x81U
+#define USBD_HID_CUSTOM_EPIN_FS_MPS                   4U
+#define USBD_HID_CUSTOM_EPIN_HS_MPS                   4U
+#define USBD_HID_CUSTOM_EPIN_FS_BINTERVAL             1U
+#define USBD_HID_CUSTOM_EPIN_HS_BINTERVAL             1U
 
 #ifndef USBD_CONFIG_STR_DESC_IDX
 #define USBD_CONFIG_STR_DESC_IDX                      0U

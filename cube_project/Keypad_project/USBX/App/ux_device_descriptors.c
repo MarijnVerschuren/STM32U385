@@ -47,11 +47,13 @@ USBD_DevClassHandleTypeDef  USBD_Device_FS, USBD_Device_HS;
 uint8_t UserClassInstance[USBD_MAX_CLASS_INTERFACES] = {
   CLASS_TYPE_HID,
   CLASS_TYPE_HID,
+  CLASS_TYPE_HID,
 };
 
 uint8_t UserHIDInterface[] = {
   INTERFACE_HID_MOUSE,
   INTERFACE_HID_KEYBOARD,
+  INTERFACE_HID_CUSTOM,
 };
 
 /* The generic device descriptor buffer that will be filled by builder
@@ -185,6 +187,22 @@ __ALIGN_END =
 };
 
 #endif /* USBD_HID_KEYBOARD_ACTIVATED == 1U */
+
+#if USBD_HID_CUSTOM_ACTIVATED == 1U
+
+#if defined ( __ICCARM__ ) /* IAR Compiler */
+#pragma data_alignment=4
+#endif /* defined ( __ICCARM__ ) */
+__ALIGN_BEGIN uint8_t USBD_CustomHID_ReportDesc[]
+__ALIGN_END =
+{
+  /* USER CODE BEGIN USBD_CustomHID_ReportDesc */
+
+  /* USER CODE END USBD_CustomHID_ReportDesc */
+  0xc0                          /* End Collection                       */
+};
+
+#endif /* USBD_HID_CUSTOM_ACTIVATED == 1U */
 
 /* USER CODE BEGIN PV1 */
 
@@ -419,6 +437,9 @@ uint8_t *USBD_HID_ReportDesc(uint8_t hid_type)
     case INTERFACE_HID_KEYBOARD:
       pHidReportDesc = USBD_HID_KEYBOARD_ReportDesc;
       break;
+    case INTERFACE_HID_CUSTOM:
+      pHidReportDesc = USBD_CustomHID_ReportDesc;
+      break;
     default:
       break;
   }
@@ -451,6 +472,9 @@ uint16_t USBD_HID_ReportDesc_length(uint8_t hid_type)
       break;
     case INTERFACE_HID_KEYBOARD:
       ReportDesc_Size = sizeof(USBD_HID_KEYBOARD_ReportDesc);
+      break;
+    case INTERFACE_HID_CUSTOM:
+      ReportDesc_Size = sizeof(USBD_CustomHID_ReportDesc);
       break;
     default:
       break;
@@ -767,6 +791,39 @@ uint8_t  USBD_FrameWork_AddToConfDesc(USBD_DevClassHandleTypeDef *pdev, uint8_t 
 
 #endif /* USBD_HID_KEYBOARD_ACTIVATED == 1U */
 
+#if USBD_HID_CUSTOM_ACTIVATED == 1U
+
+        case INTERFACE_HID_CUSTOM:
+
+          /* Find the first available interface slot and Assign number of interfaces */
+          interface = USBD_FrameWork_FindFreeIFNbr(pdev);
+          pdev->tclasslist[pdev->classId].NumIf = 1U;
+          pdev->tclasslist[pdev->classId].Ifs[0] = interface;
+
+          /* Assign endpoint numbers */
+          pdev->tclasslist[pdev->classId].NumEps = 1U; /* EP_IN */
+
+          /* Check the current speed to assign endpoints */
+          if (pdev->Speed == USBD_HIGH_SPEED)
+          {
+            /* Assign IN Endpoint */
+            USBD_FrameWork_AssignEp(pdev, USBD_HID_CUSTOM_EPIN_ADDR,
+                                    USBD_EP_TYPE_INTR, USBD_HID_CUSTOM_EPIN_HS_MPS);
+          }
+          else
+          {
+            /* Assign IN Endpoint */
+            USBD_FrameWork_AssignEp(pdev, USBD_HID_CUSTOM_EPIN_ADDR,
+                                    USBD_EP_TYPE_INTR, USBD_HID_CUSTOM_EPIN_FS_MPS);
+          }
+
+          /* Configure and Append the Descriptor */
+          USBD_FrameWork_HID_Desc(pdev, (uint32_t)pCmpstConfDesc, &pdev->CurrConfDescSz);
+
+          break;
+
+#endif /* USBD_HID_CUSTOM_ACTIVATED == 1U */
+
         default:
           break;
       }
@@ -968,6 +1025,49 @@ static void  USBD_FrameWork_HID_Desc(USBD_DevClassHandleTypeDef *pdev,
       break;
 
 #endif /* USBD_HID_KEYBOARD_ACTIVATED == 1U */
+
+#if USBD_HID_CUSTOM_ACTIVATED == 1U
+    case  INTERFACE_HID_CUSTOM:
+
+      /* Append HID Interface descriptor to Configuration descriptor */
+      __USBD_FRAMEWORK_SET_IF(pdev->tclasslist[pdev->classId].Ifs[0], 0U, \
+                              (uint8_t)(pdev->tclasslist[pdev->classId].NumEps),
+                              UX_DEVICE_CLASS_HID_CLASS,
+                              0x00U, INTERFACE_HID_CUSTOM, 0U);
+
+      /* Append HID Functional descriptor to Configuration descriptor */
+      pHidDesc = ((USBD_HIDDescTypedef *)(pConf + *Sze));
+      pHidDesc->bLength = (uint8_t)sizeof(USBD_HIDDescTypedef);
+      pHidDesc->bDescriptorType = UX_DEVICE_CLASS_HID_DESCRIPTOR_HID;
+      pHidDesc->bcdHID = 0x0111U;
+      pHidDesc->bCountryCode = 0x00U;
+      pHidDesc->bNumDescriptors = 0x01U;
+      pHidDesc->bHIDDescriptorType = 0x22U;
+      pHidDesc->wDescriptorLength = USBD_HID_ReportDesc_length(INTERFACE_HID_CUSTOM);
+      *Sze += (uint32_t)sizeof(USBD_HIDDescTypedef);
+
+      if (pdev->Speed == USBD_HIGH_SPEED)
+      {
+        /* Append Endpoint descriptor to Configuration descriptor */
+        __USBD_FRAMEWORK_SET_EP(pdev->tclasslist[pdev->classId].Eps[0].add,
+                                USBD_EP_TYPE_INTR,
+                                (uint16_t)pdev->tclasslist[pdev->classId].Eps[0].size,
+                                USBD_HID_CUSTOM_EPIN_FS_BINTERVAL,
+                                USBD_HID_CUSTOM_EPIN_HS_BINTERVAL);
+      }
+      else
+      {
+        /* Append Endpoint descriptor to Configuration descriptor */
+        __USBD_FRAMEWORK_SET_EP(pdev->tclasslist[pdev->classId].Eps[0].add,
+                                USBD_EP_TYPE_INTR,
+                                (uint16_t)pdev->tclasslist[pdev->classId].Eps[0].size,
+                                USBD_HID_CUSTOM_EPIN_FS_BINTERVAL,
+                                USBD_HID_CUSTOM_EPIN_HS_BINTERVAL);
+      }
+
+      break;
+
+#endif /* USBD_HID_CUSTOM_ACTIVATED == 1U */
 
     default:
       break;

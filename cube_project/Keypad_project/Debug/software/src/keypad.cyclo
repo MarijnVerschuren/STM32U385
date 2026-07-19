@@ -1,3 +1,6 @@
-../software/src/keypad.cpp:9:17:void keypad_main()	1
-../software/src/keypad.cpp:15:1:void __static_initialization_and_destruction_0()	1
-../software/src/keypad.cpp:15:1:cpp)	1
+../software/src/keypad.cpp:24:17:void key_scan_tick_handler()	3
+../software/src/keypad.cpp:36:17:void keypad_main()	1
+../software/src/keypad.cpp:42:1:void __static_initialization_and_destruction_0()	1
+../software/src/keypad.cpp:42:1:void __static_initialization_and_destruction_1()	1
+../software/src/keypad.cpp:42:1:cpp)	1
+../software/src/keypad.cpp:42:1:cpp)	1

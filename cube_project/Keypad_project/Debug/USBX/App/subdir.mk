@@ -7,6 +7,7 @@
 C_SRCS += \
 ../USBX/App/app_usbx.c \
 ../USBX/App/app_usbx_device.c \
+../USBX/App/ux_device_customhid.c \
 ../USBX/App/ux_device_descriptors.c \
 ../USBX/App/ux_device_keyboard.c \
 ../USBX/App/ux_device_mouse.c 
@@ -14,6 +15,7 @@ C_SRCS += \
 C_DEPS += \
 ./USBX/App/app_usbx.d \
 ./USBX/App/app_usbx_device.d \
+./USBX/App/ux_device_customhid.d \
 ./USBX/App/ux_device_descriptors.d \
 ./USBX/App/ux_device_keyboard.d \
 ./USBX/App/ux_device_mouse.d 
@@ -21,6 +23,7 @@ C_DEPS += \
 OBJS += \
 ./USBX/App/app_usbx.o \
 ./USBX/App/app_usbx_device.o \
+./USBX/App/ux_device_customhid.o \
 ./USBX/App/ux_device_descriptors.o \
 ./USBX/App/ux_device_keyboard.o \
 ./USBX/App/ux_device_mouse.o 
@@ -33,7 +36,7 @@ USBX/App/%.o USBX/App/%.su USBX/App/%.cyclo: ../USBX/App/%.c USBX/App/subdir.mk
 clean: clean-USBX-2f-App
 
 clean-USBX-2f-App:
-	-$(RM) ./USBX/App/app_usbx.cyclo ./USBX/App/app_usbx.d ./USBX/App/app_usbx.o ./USBX/App/app_usbx.su ./USBX/App/app_usbx_device.cyclo ./USBX/App/app_usbx_device.d ./USBX/App/app_usbx_device.o ./USBX/App/app_usbx_device.su ./USBX/App/ux_device_descriptors.cyclo ./USBX/App/ux_device_descriptors.d ./USBX/App/ux_device_descriptors.o ./USBX/App/ux_device_descriptors.su ./USBX/App/ux_device_keyboard.cyclo ./USBX/App/ux_device_keyboard.d ./USBX/App/ux_device_keyboard.o ./USBX/App/ux_device_keyboard.su ./USBX/App/ux_device_mouse.cyclo ./USBX/App/ux_device_mouse.d ./USBX/App/ux_device_mouse.o ./USBX/App/ux_device_mouse.su
+	-$(RM) ./USBX/App/app_usbx.cyclo ./USBX/App/app_usbx.d ./USBX/App/app_usbx.o ./USBX/App/app_usbx.su ./USBX/App/app_usbx_device.cyclo ./USBX/App/app_usbx_device.d ./USBX/App/app_usbx_device.o ./USBX/App/app_usbx_device.su ./USBX/App/ux_device_customhid.cyclo ./USBX/App/ux_device_customhid.d ./USBX/App/ux_device_customhid.o ./USBX/App/ux_device_customhid.su ./USBX/App/ux_device_descriptors.cyclo ./USBX/App/ux_device_descriptors.d ./USBX/App/ux_device_descriptors.o ./USBX/App/ux_device_descriptors.su ./USBX/App/ux_device_keyboard.cyclo ./USBX/App/ux_device_keyboard.d ./USBX/App/ux_device_keyboard.o ./USBX/App/ux_device_keyboard.su ./USBX/App/ux_device_mouse.cyclo ./USBX/App/ux_device_mouse.d ./USBX/App/ux_device_mouse.o ./USBX/App/ux_device_mouse.su
 
 .PHONY: clean-USBX-2f-App
 

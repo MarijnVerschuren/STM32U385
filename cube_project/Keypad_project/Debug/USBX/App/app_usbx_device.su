@@ -1,4 +1,4 @@
-../USBX/App/app_usbx_device.c:68:6:MX_USBX_Device_Init	16	static
-../USBX/App/app_usbx_device.c:99:6:MX_USBX_Device_Stack_Init	80	static
-../USBX/App/app_usbx_device.c:225:6:MX_USBX_Device_Stack_DeInit	16	static
-../USBX/App/app_usbx_device.c:266:13:USBD_ChangeFunction	24	static
+../USBX/App/app_usbx_device.c:71:6:MX_USBX_Device_Init	16	static
+../USBX/App/app_usbx_device.c:102:6:MX_USBX_Device_Stack_Init	80	static
+../USBX/App/app_usbx_device.c:265:6:MX_USBX_Device_Stack_DeInit	16	static
+../USBX/App/app_usbx_device.c:306:13:USBD_ChangeFunction	24	static

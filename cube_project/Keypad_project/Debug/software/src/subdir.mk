@@ -6,7 +6,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../software/src/keypad.cpp \
-../software/src/keyscan.cpp 
+../software/src/keys.cpp 
 
 C_SRCS += \
 ../software/src/PAL.c 
@@ -17,11 +17,11 @@ C_DEPS += \
 OBJS += \
 ./software/src/PAL.o \
 ./software/src/keypad.o \
-./software/src/keyscan.o 
+./software/src/keys.o 
 
 CPP_DEPS += \
 ./software/src/keypad.d \
-./software/src/keyscan.d 
+./software/src/keys.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -33,7 +33,7 @@ software/src/%.o software/src/%.su software/src/%.cyclo: ../software/src/%.cpp s
 clean: clean-software-2f-src
 
 clean-software-2f-src:
-	-$(RM) ./software/src/PAL.cyclo ./software/src/PAL.d ./software/src/PAL.o ./software/src/PAL.su ./software/src/keypad.cyclo ./software/src/keypad.d ./software/src/keypad.o ./software/src/keypad.su ./software/src/keyscan.cyclo ./software/src/keyscan.d ./software/src/keyscan.o ./software/src/keyscan.su
+	-$(RM) ./software/src/PAL.cyclo ./software/src/PAL.d ./software/src/PAL.o ./software/src/PAL.su ./software/src/keypad.cyclo ./software/src/keypad.d ./software/src/keypad.o ./software/src/keypad.su ./software/src/keys.cyclo ./software/src/keys.d ./software/src/keys.o ./software/src/keys.su
 
 .PHONY: clean-software-2f-src
 

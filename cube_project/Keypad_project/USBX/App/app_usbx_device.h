@@ -30,6 +30,7 @@ extern "C" {
 #include "ux_device_class_hid.h"
 #include "ux_device_mouse.h"
 #include "ux_device_keyboard.h"
+#include "ux_device_customhid.h"
 #include "ux_device_descriptors.h"
 #include "ux_dcd_stm32.h"
 /* Private includes ----------------------------------------------------------*/

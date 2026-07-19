@@ -46,8 +46,11 @@ static ULONG hid_mouse_interface_number;
 static ULONG hid_mouse_configuration_number;
 static ULONG hid_keyboard_interface_number;
 static ULONG hid_keyboard_configuration_number;
+static ULONG hid_custom_interface_number;
+static ULONG hid_custom_configuration_number;
 static UX_SLAVE_CLASS_HID_PARAMETER hid_mouse_parameter;
 static UX_SLAVE_CLASS_HID_PARAMETER hid_keyboard_parameter;
+static UX_SLAVE_CLASS_HID_PARAMETER custom_hid_parameter;
 extern PCD_HandleTypeDef           hpcd_USB_DRD_FS;
 
 /* USER CODE BEGIN PV */
@@ -201,6 +204,43 @@ UINT MX_USBX_Device_Stack_Init(void)
     /* USER CODE BEGIN USBX_DEVICE_HID_KEYBOARD_REGISTER_ERROR */
     return UX_ERROR;
     /* USER CODE END USBX_DEVICE_HID_KEYBOARD_REGISTER_ERROR */
+  }
+
+  /* Initialize the hid custom class parameters for the device */
+  custom_hid_parameter.ux_slave_class_hid_instance_activate         = USBD_Custom_HID_Activate;
+  custom_hid_parameter.ux_slave_class_hid_instance_deactivate       = USBD_Custom_HID_Deactivate;
+  custom_hid_parameter.ux_device_class_hid_parameter_report_address = USBD_HID_ReportDesc(INTERFACE_HID_CUSTOM);
+  custom_hid_parameter.ux_device_class_hid_parameter_report_length  = USBD_HID_ReportDesc_length(INTERFACE_HID_CUSTOM);
+  custom_hid_parameter.ux_device_class_hid_parameter_report_id      = UX_FALSE;
+  custom_hid_parameter.ux_device_class_hid_parameter_callback       = USBD_Custom_HID_SetFeature;
+  custom_hid_parameter.ux_device_class_hid_parameter_get_callback   = USBD_Custom_HID_GetReport;
+#ifdef UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT
+  custom_hid_parameter.ux_device_class_hid_parameter_receiver_initialize       = ux_device_class_hid_receiver_initialize;
+  custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_max_number = USBD_Custom_HID_EventMaxNumber();
+  custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_max_length = USBD_Custom_HID_EventMaxLength();
+  custom_hid_parameter.ux_device_class_hid_parameter_receiver_event_callback   = USBD_Custom_HID_SetReport;
+#endif /* UX_DEVICE_CLASS_HID_INTERRUPT_OUT_SUPPORT */
+
+  /* USER CODE BEGIN CUSTOM_HID_PARAMETER */
+
+  /* USER CODE END CUSTOM_HID_PARAMETER */
+
+  /* Get Custom hid configuration number */
+  hid_custom_configuration_number = USBD_Get_Configuration_Number(CLASS_TYPE_HID, INTERFACE_HID_CUSTOM);
+
+  /* Find Custom hid interface number */
+  hid_custom_interface_number = USBD_Get_Interface_Number(CLASS_TYPE_HID, INTERFACE_HID_CUSTOM);
+
+  /* Initialize the device hid custom class */
+  if (ux_device_stack_class_register(_ux_system_slave_class_hid_name,
+                                     ux_device_class_hid_entry,
+                                     hid_custom_configuration_number,
+                                     hid_custom_interface_number,
+                                     &custom_hid_parameter) != UX_SUCCESS)
+  {
+  /* USER CODE BEGIN USBX_DEVICE_HID_CUSTOM_REGISTER_ERROR */
+  return UX_ERROR;
+  /* USER CODE END USBX_DEVICE_HID_CUSTOM_REGISTER_ERROR */
   }
 
   /* Initialize and link controller HAL driver */
