@@ -1,0 +1,2 @@
+../software/src/syscalls.c:6:5:_write	1
+../software/src/syscalls.c:13:5:_read	1

@@ -61,8 +61,6 @@ MMC_HandleTypeDef hmmc1;
 SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi2;
 
-TIM_HandleTypeDef htim1;
-
 UART_HandleTypeDef huart3;
 
 PCD_HandleTypeDef hpcd_USB_DRD_FS;
@@ -84,8 +82,6 @@ static void MX_SPI2_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_RTC_Init(void);
 static void MX_RNG_Init(void);
-static void MX_ICACHE_Init(void);
-static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -134,11 +130,14 @@ int main(void)
   MX_USART3_UART_Init();
   MX_RTC_Init();
   MX_RNG_Init();
-  MX_ICACHE_Init();
-  MX_TIM1_Init();
   MX_USBX_Init();
   /* USER CODE BEGIN 2 */
+  MX_USB_PCD_Init();
 
+  HAL_PCDEx_PMAConfig(&hpcd_USB_DRD_FS, 0x00, PCD_SNG_BUF, 0x20);
+  HAL_PCDEx_PMAConfig(&hpcd_USB_DRD_FS, 0x80, PCD_SNG_BUF, 0x60);
+  _ux_dcd_stm32_initialize((ULONG)NULL, (ULONG)&hpcd_USB_DRD_FS);
+  HAL_PCD_Start(&hpcd_USB_DRD_FS); // start USB
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -147,7 +146,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  for(;;);
+  for(;;) { }
   /* USER CODE END 3 */
 }
 
@@ -159,6 +158,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_CRSInitTypeDef RCC_CRSInitStruct = {0};
 
   /** Enable Epod Booster
   */
@@ -216,6 +216,21 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+
+  /** Enable the CRS clock
+  */
+  __HAL_RCC_CRS_CLK_ENABLE();
+
+  /** Configures CRS
+  */
+  RCC_CRSInitStruct.Prescaler = RCC_CRS_SYNC_DIV1;
+  RCC_CRSInitStruct.Source = RCC_CRS_SYNC_SOURCE_USB;
+  RCC_CRSInitStruct.Polarity = RCC_CRS_SYNC_POLARITY_RISING;
+  RCC_CRSInitStruct.ReloadValue = __HAL_RCC_CRS_RELOADVALUE_CALCULATE(48000000,1000);
+  RCC_CRSInitStruct.ErrorLimitValue = 34;
+  RCC_CRSInitStruct.HSI48CalibrationValue = 32;
+
+  HAL_RCCEx_CRSConfig(&RCC_CRSInitStruct);
 }
 
 /**
@@ -308,38 +323,6 @@ static void MX_HASH_Init(void)
   /* USER CODE BEGIN HASH_Init 2 */
 
   /* USER CODE END HASH_Init 2 */
-
-}
-
-/**
-  * @brief ICACHE Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_ICACHE_Init(void)
-{
-
-  /* USER CODE BEGIN ICACHE_Init 0 */
-
-  /* USER CODE END ICACHE_Init 0 */
-
-  /* USER CODE BEGIN ICACHE_Init 1 */
-
-  /* USER CODE END ICACHE_Init 1 */
-
-  /** Enable instruction cache in 1-way (direct mapped cache)
-  */
-  if (HAL_ICACHE_ConfigAssociativityMode(ICACHE_1WAY) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_ICACHE_Enable() != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN ICACHE_Init 2 */
-
-  /* USER CODE END ICACHE_Init 2 */
 
 }
 
@@ -638,53 +621,6 @@ static void MX_SPI2_Init(void)
   /* USER CODE BEGIN SPI2_Init 2 */
 
   /* USER CODE END SPI2_Init 2 */
-
-}
-
-/**
-  * @brief TIM1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM1_Init(void)
-{
-
-  /* USER CODE BEGIN TIM1_Init 0 */
-
-  /* USER CODE END TIM1_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM1_Init 1 */
-
-  /* USER CODE END TIM1_Init 1 */
-  htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 0;
-  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 16000;
-  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim1.Init.RepetitionCounter = 0;
-  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
-  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM1_Init 2 */
-
-  /* USER CODE END TIM1_Init 2 */
 
 }
 

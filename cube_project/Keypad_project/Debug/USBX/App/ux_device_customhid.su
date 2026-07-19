@@ -1,4 +1,0 @@
-../USBX/App/ux_device_customhid.c:65:6:USBD_Custom_HID_Activate	16	static
-../USBX/App/ux_device_customhid.c:80:6:USBD_Custom_HID_Deactivate	16	static
-../USBX/App/ux_device_customhid.c:97:6:USBD_Custom_HID_SetFeature	24	static
-../USBX/App/ux_device_customhid.c:118:6:USBD_Custom_HID_GetReport	24	static

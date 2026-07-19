@@ -34,7 +34,6 @@ USBX/App/ux_device_descriptors.o: ../USBX/App/ux_device_descriptors.c \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_hash.h \
- ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_icache.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_lptim.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_ll_lptim.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_mmc.h \
@@ -51,8 +50,6 @@ USBX/App/ux_device_descriptors.o: ../USBX/App/ux_device_descriptors.c \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi_ex.h \
- ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_tim.h \
- ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_tim_ex.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_uart.h \
  ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_uart_ex.h \
  ../Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h
@@ -92,7 +89,6 @@ USBX/App/ux_device_descriptors.o: ../USBX/App/ux_device_descriptors.c \
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_flash_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_hash.h:
-../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_icache.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_lptim.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_ll_lptim.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_mmc.h:
@@ -109,8 +105,6 @@ USBX/App/ux_device_descriptors.o: ../USBX/App/ux_device_descriptors.c \
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_rtc_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_spi_ex.h:
-../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_tim.h:
-../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_tim_ex.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_uart.h:
 ../Drivers/STM32U3xx_HAL_Driver/Inc/stm32u3xx_hal_uart_ex.h:
 ../Middlewares/ST/usbx/common/usbx_device_classes/inc/ux_device_class_hid.h:

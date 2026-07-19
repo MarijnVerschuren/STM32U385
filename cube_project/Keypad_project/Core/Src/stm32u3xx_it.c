@@ -22,6 +22,7 @@
 #include "stm32u3xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "PAL.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,7 +56,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern TIM_HandleTypeDef htim1;
+extern PCD_HandleTypeDef hpcd_USB_DRD_FS;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -199,17 +200,17 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles TIM1 Update interrupt.
+  * @brief This function handles USB FS global interrupt / USB FS wake-up interrupt through EXTI line 34.
   */
-void TIM1_UP_IRQHandler(void)
+void USB_FS_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM1_UP_IRQn 0 */
-	key_scan_tick_handler();
-  /* USER CODE END TIM1_UP_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_UP_IRQn 1 */
+  /* USER CODE BEGIN USB_FS_IRQn 0 */
 
-  /* USER CODE END TIM1_UP_IRQn 1 */
+  /* USER CODE END USB_FS_IRQn 0 */
+  HAL_PCD_IRQHandler(&hpcd_USB_DRD_FS);
+  /* USER CODE BEGIN USB_FS_IRQn 1 */
+
+  /* USER CODE END USB_FS_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

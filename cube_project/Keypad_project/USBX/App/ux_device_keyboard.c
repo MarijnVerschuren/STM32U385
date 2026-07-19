@@ -43,7 +43,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-
+UX_SLAVE_CLASS_HID* HID_keyboard;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -65,7 +65,7 @@
 VOID USBD_HID_Keyboard_Activate(VOID *hid_instance)
 {
   /* USER CODE BEGIN USBD_HID_Keyboard_Activate */
-  UX_PARAMETER_NOT_USED(hid_instance);
+  HID_keyboard = (UX_SLAVE_CLASS_HID*)hid_instance;
   /* USER CODE END USBD_HID_Keyboard_Activate */
 
   return;
@@ -81,6 +81,7 @@ VOID USBD_HID_Keyboard_Deactivate(VOID *hid_instance)
 {
   /* USER CODE BEGIN USBD_HID_Keyboard_Deactivate */
   UX_PARAMETER_NOT_USED(hid_instance);
+  HID_keyboard = NULL;
   /* USER CODE END USBD_HID_Keyboard_Deactivate */
 
   return;
