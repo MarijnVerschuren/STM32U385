@@ -1,4 +1,4 @@
 ../USBX/App/ux_device_keyboard.c:65:6:USBD_HID_Keyboard_Activate	1
-../USBX/App/ux_device_keyboard.c:80:6:USBD_HID_Keyboard_Deactivate	1
-../USBX/App/ux_device_keyboard.c:98:6:USBD_HID_Keyboard_SetReport	1
-../USBX/App/ux_device_keyboard.c:119:6:USBD_HID_Keyboard_GetReport	1
+../USBX/App/ux_device_keyboard.c:81:6:USBD_HID_Keyboard_Deactivate	1
+../USBX/App/ux_device_keyboard.c:100:6:USBD_HID_Keyboard_SetReport	1
+../USBX/App/ux_device_keyboard.c:121:6:USBD_HID_Keyboard_GetReport	1

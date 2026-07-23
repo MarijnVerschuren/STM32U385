@@ -56,9 +56,50 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern PCD_HandleTypeDef hpcd_USB_DRD_FS;
+extern TIM_HandleTypeDef htim1;
 /* USER CODE BEGIN EV */
+typedef struct
+{
+    uint32_t r0;
+    uint32_t r1;
+    uint32_t r2;
+    uint32_t r3;
+    uint32_t r12;
+    uint32_t lr;
+    uint32_t pc;
+    uint32_t xpsr;
+} HardFaultStackFrame;
 
+
+void hard_fault_handler_c(uint32_t *stack_address)
+{
+    HardFaultStackFrame *frame;
+
+    frame = (HardFaultStackFrame *)stack_address;
+
+    volatile uint32_t r0   = frame->r0;
+    volatile uint32_t r1   = frame->r1;
+    volatile uint32_t r2   = frame->r2;
+    volatile uint32_t r3   = frame->r3;
+    volatile uint32_t r12  = frame->r12;
+    volatile uint32_t lr   = frame->lr;
+    volatile uint32_t pc   = frame->pc;
+    volatile uint32_t xpsr = frame->xpsr;
+
+    volatile uint32_t cfsr  = SCB->CFSR;
+    volatile uint32_t hfsr  = SCB->HFSR;
+    volatile uint32_t dfsr  = SCB->DFSR;
+    volatile uint32_t afsr  = SCB->AFSR;
+    volatile uint32_t mmfar = SCB->MMFAR;
+    volatile uint32_t bfar  = SCB->BFAR;
+
+    // Put a breakpoint here
+    __BKPT(0);
+
+    while (1)
+    {
+    }
+}
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -85,7 +126,14 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
-
+    __asm volatile
+    (
+        "tst lr, #4                         \n"
+        "ite eq                             \n"
+        "mrseq r0, msp                     \n"
+        "mrsne r0, psp                     \n"
+        "b hard_fault_handler_c            \n"
+    );
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
@@ -200,17 +248,30 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles USB FS global interrupt / USB FS wake-up interrupt through EXTI line 34.
+  * @brief This function handles EXTI Line0 interrupt.
   */
-void USB_FS_IRQHandler(void)
+void EXTI0_IRQHandler(void)
 {
-  /* USER CODE BEGIN USB_FS_IRQn 0 */
+  /* USER CODE BEGIN EXTI0_IRQn 0 */
 
-  /* USER CODE END USB_FS_IRQn 0 */
-  HAL_PCD_IRQHandler(&hpcd_USB_DRD_FS);
-  /* USER CODE BEGIN USB_FS_IRQn 1 */
+  /* USER CODE END EXTI0_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+  /* USER CODE BEGIN EXTI0_IRQn 1 */
+  /* USER CODE END EXTI0_IRQn 1 */
+}
 
-  /* USER CODE END USB_FS_IRQn 1 */
+/**
+  * @brief This function handles TIM1 Update interrupt.
+  */
+void TIM1_UP_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_UP_IRQn 0 */
+
+  /* USER CODE END TIM1_UP_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  /* USER CODE BEGIN TIM1_UP_IRQn 1 */
+  key_scan_tick_handler();
+  /* USER CODE END TIM1_UP_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

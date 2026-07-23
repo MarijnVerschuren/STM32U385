@@ -1,8 +1,7 @@
 ../software/src/PAL.c:23:35:USART_to_handle	16	static
 ../software/src/PAL.c:35:6:GPIO_toggle	16	static
-../software/src/PAL.c:39:6:delay_ms	16	static
-../software/src/PAL.c:43:10:get_tick	16	static
-../software/src/PAL.c:47:10:USART_write	24	static
-../software/src/PAL.c:51:10:USART_read	24	static
-../software/src/PAL.c:56:6:HID_run_tasks	8	static
-../software/src/PAL.c:60:6:HID_send_msg	64	static
+../software/src/PAL.c:39:6:GPIO_write	16	static
+../software/src/PAL.c:43:6:delay_ms	16	static
+../software/src/PAL.c:47:10:get_tick	16	static
+../software/src/PAL.c:51:10:USART_write	24	static
+../software/src/PAL.c:55:10:USART_read	24	static

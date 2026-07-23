@@ -1,6 +1,9 @@
-../software/src/keypad.cpp:24:17:void key_scan_tick_handler()	24	static
-../software/src/keypad.cpp:37:17:void keypad_main()	24	static
-../software/src/keypad.cpp:48:1:void __static_initialization_and_destruction_0()	16	static
-../software/src/keypad.cpp:48:1:void __static_initialization_and_destruction_1()	8	static
-../software/src/keypad.cpp:48:1:cpp)	8	static
-../software/src/keypad.cpp:48:1:cpp)	8	static
+../software/src/keypad.cpp:44:17:void USB_HID_enumerated_callback()	4	static
+../software/src/keypad.cpp:45:17:void USB_HID_disconnect_callback()	4	static
+../software/src/keypad.cpp:47:17:void rotary_button_handler(uint8_t)	16	static
+../software/src/keypad.cpp:51:17:void key_scan_tick_handler()	24	static
+../software/src/keypad.cpp:74:17:void keypad_main()	16	static
+../software/src/keypad.cpp:90:1:void __static_initialization_and_destruction_0()	16	static
+../software/src/keypad.cpp:90:1:void __static_initialization_and_destruction_1()	8	static
+../software/src/keypad.cpp:90:1:cpp)	8	static
+../software/src/keypad.cpp:90:1:cpp)	8	static

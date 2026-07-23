@@ -1,7 +1,7 @@
 #include "PAL.h"
 
 #include "main.h"
-#include "app_usbx.h"
+//#include "app_usbx.h"
 
 
 
@@ -13,11 +13,11 @@ extern RTC_HandleTypeDef hrtc;
 extern MMC_HandleTypeDef hmmc1;
 extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi2;
-//extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim1;
 extern UART_HandleTypeDef huart3;
-extern PCD_HandleTypeDef hpcd_USB_DRD_FS;
 
-extern UX_SLAVE_CLASS_HID* HID_keyboard;
+//extern PCD_HandleTypeDef hpcd_USB_DRD_FS;
+//extern UX_SLAVE_CLASS_HID* HID_keyboard;
 
 
 static inline UART_HandleTypeDef* USART_to_handle(void* usart) {
@@ -34,6 +34,10 @@ static inline UART_HandleTypeDef* USART_to_handle(void* usart) {
 
 void GPIO_toggle(void* port, uint8_t pin) {
 	HAL_GPIO_TogglePin(port, 0b1 << pin);
+}
+
+void GPIO_write(void* port, uint8_t pin, uint8_t val) {
+	HAL_GPIO_WritePin(port, 0b1 << pin, val);
 }
 
 void delay_ms(uint64_t ms) {
@@ -53,15 +57,15 @@ uint32_t USART_read(void* usart, uint8_t* buffer, uint32_t size, uint32_t timeou
 }
 
 
-void HID_run_tasks(void) {
-	ux_device_stack_tasks_run();
-}
-
-void HID_send_msg(uint8_t msg[8]) {
-	UX_SLAVE_CLASS_HID_EVENT event;
-	event.ux_device_class_hid_event_length = 8;
-	for (uint8_t i = 0; i < 8; i++) {
-		event.ux_device_class_hid_event_buffer[i] = msg[i];
-	}
-	ux_device_class_hid_event_set(HID_keyboard, &event);
-}
+//void HID_run_tasks(void) {
+//	ux_device_stack_tasks_run();
+//}
+//
+//void HID_send_msg(uint8_t msg[8]) {
+//	UX_SLAVE_CLASS_HID_EVENT event;
+//	event.ux_device_class_hid_event_length = 8;
+//	for (uint8_t i = 0; i < 8; i++) {
+//		event.ux_device_class_hid_event_buffer[i] = msg[i];
+//	}
+//	ux_device_class_hid_event_set(HID_keyboard, &event);
+//}

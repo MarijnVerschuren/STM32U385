@@ -47,8 +47,8 @@ uint8_t key_scan_t::update(void) {
 	if (this->state & 0x1) {	// odd state => column active
 		uint16_t active = ((*this->IDR) & this->imsk) >> this->ho;
 		(*this->ODR) &=	~this->omsk;	// clear col output
-		this->state = ((this->state + 1U) % (this->w << 1U));
 		this->process_bitmask(this->state >> 1U, active);
+		this->state = ((this->state + 1U) % (this->w << 1U));
 		return !this->state;
 	}
 	(*this->ODR) |= 0x1 << (this->wo + (this->state >> 1U));

@@ -41,9 +41,5 @@ SUBDIRS := \
 Core/Src \
 Core/Startup \
 Drivers/STM32U3xx_HAL_Driver/Src \
-Middlewares/ST/usbx/common/core/src \
-Middlewares/ST/usbx/common/usbx_device_classes/src \
-Middlewares/ST/usbx/common/usbx_stm32_device_controllers \
-USBX/App \
 software/src \
 
