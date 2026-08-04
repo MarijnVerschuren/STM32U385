@@ -49,9 +49,9 @@ enable_GPIO:
 	mov r1, #1
 	lsl r0, r1, r0
 	ldr ip, =RCC_BASE
-	ldr r1, [ip, RCC_AHB1ENR]
+	ldr r1, [ip, RCC_AHB2ENR1]
 	orr r1, r1, r0 
-	str r1, [ip, RCC_AHB1ENR]
+	str r1, [ip, RCC_AHB2ENR1]
 	bx r2
 .size enable_GPIO, .-enable_GPIO
 
@@ -63,9 +63,9 @@ disable_GPIO:
 	mov r1, #1
 	lsl r0, r1, r0
 	ldr ip, =RCC_BASE
-	ldr r1, [ip, RCC_AHB1ENR]
+	ldr r1, [ip, RCC_AHB2ENR1]
 	bic r1, r1, r0
-	str r1, [ip, RCC_AHB1ENR]
+	str r1, [ip, RCC_AHB2ENR1]
 	bx r2
 .size disable_GPIO, .-disable_GPIO
 

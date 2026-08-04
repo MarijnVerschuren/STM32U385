@@ -57,13 +57,14 @@ link_directories(
 add_executable(${PROJECT_NAME}
         ${CMAKE_SOURCE_DIR}/src/vector.S
         ${CMAKE_SOURCE_DIR}/src/startup.S
-#        ${CMAKE_SOURCE_DIR}/src/syscalls.S
-#        ${CMAKE_SOURCE_DIR}/src/sys.S
-#        ${CMAKE_SOURCE_DIR}/src/base.S
-#        ${CMAKE_SOURCE_DIR}/src/NVIC.S
-#        ${CMAKE_SOURCE_DIR}/src/GPIO.S
-#        ${CMAKE_SOURCE_DIR}/src/EXTI.S
+        ${CMAKE_SOURCE_DIR}/src/syscalls.S
+        ${CMAKE_SOURCE_DIR}/src/sys.S
+        ${CMAKE_SOURCE_DIR}/src/base.S
+        ${CMAKE_SOURCE_DIR}/src/NVIC.S
+        ${CMAKE_SOURCE_DIR}/src/GPIO.S
 #        ${CMAKE_SOURCE_DIR}/src/sys.c
+
+        ${CMAKE_SOURCE_DIR}/src/EXTI.c
 )
 
 # list of modules to build the application

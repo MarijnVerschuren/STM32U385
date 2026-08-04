@@ -2,8 +2,8 @@
 // Created by marijn on 9/4/24.
 //
 
-#ifndef STM32F412_BASE_H
-#define STM32F412_BASE_H
+#ifndef STM32U385_BASE_H
+#define STM32U385_BASE_H
 
 
 typedef char				int8_t;
@@ -79,4 +79,4 @@ extern void disable_dev(void* dev);
 
 
 
-#endif // STM32F412_BASE_H
+#endif // STM32U385_BASE_H

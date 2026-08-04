@@ -21,7 +21,6 @@
 .type reset_handler, %function
 .thumb_func
 reset_handler:
-	bkpt #1
 	ldr sp, =_stack_end				// set stack pointer
 	ldr r0, =_stack_start
 	msr MSPLIM, r0

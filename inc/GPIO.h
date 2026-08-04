@@ -2,8 +2,8 @@
 // Created by marijn on 9/13/24.
 //
 
-#ifndef STM32F412_GPIO_H
-#define STM32F412_GPIO_H
+#ifndef STM32U385_GPIO_H
+#define STM32U385_GPIO_H
 #include "periph.h"
 
 
@@ -49,4 +49,4 @@ extern void GPIO_toggle(GPIO_t* port, uint8_t pin);
 /*!< input */
 extern uint8_t GPIO_read(GPIO_t* port, uint8_t pin);
 
-#endif //STM32F412_GPIO_H
+#endif //STM32U385_GPIO_H
