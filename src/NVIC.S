@@ -8,6 +8,7 @@
 .global NVIC_enable_IRQ
 .global NVIC_disable_IRQ
 .global NVIC_set_IRQ_priority
+.global NVIC_set_IRQ_pending
 
 
 
@@ -57,5 +58,21 @@ NVIC_set_IRQ_priority:
 	bx lr						// return
 .size NVIC_set_IRQ_priority, .-NVIC_set_IRQ_priority
 
+
+
+
+//void NVIC_set_IRQ_pending(IRQn_t);
+.section .text.NVIC_set_IRQ_pending
+.type NVIC_set_IRQ_pending, %function
+NVIC_set_IRQ_pending:
+	lsr r1, r0, #5				// word index in the ISPR register
+	and r0, r0, #0x1F			// bit	index in the ISPR register
+	mov r2, #1					// load bit
+	lsl r0, r2, r0				// shift bit
+	ldr ip, =NVIC_BASE			// load NVIC base into IP
+	add ip, ip, r1, lsl 2		// add word index to IP
+	str r0, [ip, NVIC_ISPR]		// set IRQ enable bit
+	bx lr						// return
+.size NVIC_set_IRQ_pending, .-NVIC_set_IRQ_pending
 
 

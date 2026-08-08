@@ -97,6 +97,7 @@
 #define NVIC_ISPR		0x100
 #define NVIC_ICPR		0x180
 #define NVIC_IABR		0x200
+#define NVIC_ITNS		0x280
 #define NVIC_IP			0x300
 #define NVIC_STIR		0xE00
 

@@ -137,9 +137,10 @@ typedef enum {
 /*!<
  * init
  * */
-void NVIC_enable_IRQ(IRQn_t irqn);
-void NVIC_disable_IRQ(IRQn_t irqn);
-void NVIC_set_IRQ_priority(IRQn_t irqn, uint8_t priority);
+extern void NVIC_enable_IRQ(IRQn_t irqn);
+extern void NVIC_disable_IRQ(IRQn_t irqn);
+extern void NVIC_set_IRQ_priority(IRQn_t irqn, uint8_t priority);	// TODO: <0 IRQns!!!
+extern void NVIC_set_IRQ_pending(IRQn_t irqn);
 
 // static inline uint32_t NVIC_get_priority_grouping(void) {
 // 	return ((uint32_t)((SCB->AIRCR & (7UL << 8U)) >> 8U));

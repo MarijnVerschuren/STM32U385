@@ -49,20 +49,23 @@ typedef struct {
 } SYS_TICK_t;
 
 typedef struct {
-	_IO uint32_t ISER[8U];			/* interrupt enable                 0x000 */
-	uint32_t _0[24U];
-	_IO uint32_t ICER[8U];			/* interrupt disable                0x080 */
-	uint32_t _1[24U];
-	_IO uint32_t ISPR[8U];			/* interrupt set pending            0x100 */
-	uint32_t _2[24U];
-	_IO uint32_t ICPR[8U];			/* interrupt clear pending			0x180 */
-	uint32_t _3[24U];
-	_IO uint32_t IABR[8U];			/* interrupt active bit             0x200 */
-	uint32_t _4[56U];
-	_IO uint8_t  IP[240U];			/* interrupt priority               0x300 */
-	uint32_t _5[644U];
+	_IO uint32_t ISER[16U];			/* interrupt enable                 0x000 */
+	uint32_t _0[16U];
+	_IO uint32_t ICER[16U];			/* interrupt disable                0x080 */
+	uint32_t _1[16U];
+	_IO uint32_t ISPR[16U];			/* interrupt set pending            0x100 */
+	uint32_t _2[16U];
+	_IO uint32_t ICPR[16U];			/* interrupt clear pending			0x180 */
+	uint32_t _3[16U];
+	_IO uint32_t IABR[16U];			/* interrupt active bit             0x200 */
+	uint32_t _4[16U];
+	_IO uint32_t ITNS[16U];			/* interrupt active bit             0x280 */
+	uint32_t _5[16U];
+	_IO uint8_t  IP[496U];			/* interrupt priority               0x300 */
+	uint32_t _6[580U];
 	_O	uint32_t STIR;				/* software trigger interrupt       0xE00 */
 } NVIC_t;
+
 
 // typedef struct {
 // 	_I  uint32_t	CPUID;			/* CPUID base                        0x00 */
@@ -162,20 +165,20 @@ typedef struct {
 } RCC_t;
 
 /*!< SYSCFG */
-typedef struct {
-	_IO uint32_t SECCFGR;			/* 0x00 */
-	_IO uint32_t CFGR1;				/* 0x04 */
-	_IO uint32_t FPUIMR;			/* 0x08 */
-	_IO uint32_t CNSLCKR;			/* 0x0C */
-	_IO uint32_t CSLCKR;			/* 0x10 */
-	_IO uint32_t CFGR2;				/* 0x14 */
-		uint32_t _0;				/* 0x18 */
-	_IO uint32_t CCCSR;				/* 0x1C */
-	_IO uint32_t CCVR;				/* 0x20 */
-	_IO uint32_t CCCR;				/* 0x24 */
-		uint32_t _1;				/* 0x28 */
-	_IO uint32_t RSSCMDR;			/* 0x2C */
-} SYSCFG_t;
+// typedef struct {
+// 	_IO uint32_t SECCFGR;			/* 0x00 */
+// 	_IO uint32_t CFGR1;				/* 0x04 */
+// 	_IO uint32_t FPUIMR;			/* 0x08 */
+// 	_IO uint32_t CNSLCKR;			/* 0x0C */
+// 	_IO uint32_t CSLCKR;			/* 0x10 */
+// 	_IO uint32_t CFGR2;				/* 0x14 */
+// 		uint32_t _0;				/* 0x18 */
+// 	_IO uint32_t CCCSR;				/* 0x1C */
+// 	_IO uint32_t CCVR;				/* 0x20 */
+// 	_IO uint32_t CCCR;				/* 0x24 */
+// 		uint32_t _1;				/* 0x28 */
+// 	_IO uint32_t RSSCMDR;			/* 0x2C */
+// } SYSCFG_t;
 
 /*!< GPIO */
 typedef struct {
@@ -202,13 +205,14 @@ typedef struct {
 	_IO uint32_t FPR;				/* 0x10 */
 	_IO uint32_t SECCFGR;			/* 0x14 */
 	_IO uint32_t PRIVCFGR;			/* 0x18 */
-		uint32_t _0[20];			/* 0x1C-0x5C */
+		uint32_t _0[17];			/* 0x1C-0x5C */
 	_IO uint32_t EXTICR[4];			/* 0x60-0x6C */
 	_IO uint32_t LOCKR;				/* 0x70 */
 		uint32_t _1[3];				/* 0x74-0x7C */
 	_IO uint32_t IMR;				/* 0x80 */
 	_IO uint32_t EMR;				/* 0x84 */
 } EXTI_t;
+
 
 /*!< TIM */
 // typedef struct {
