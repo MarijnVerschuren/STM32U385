@@ -30,7 +30,8 @@ typedef enum {
 	DEV_CLOCK_AHB2 = 1,
 	DEV_CLOCK_AHB3 = 2,
 	DEV_CLOCK_APB1 = 4,
-	DEV_CLOCK_APB2 = 5
+	DEV_CLOCK_APB2 = 5,
+	DEV_CLOCK_APB3 = 6
 } dev_clock_id_t;
 
 typedef struct {
@@ -59,23 +60,19 @@ typedef enum {
 } io_buffer_flag_t;
 
 
-/*<! sys */
+/*!< sys */
 extern _IO uint32_t heap_end;
 extern void* malloc(uint32_t);
 extern void* calloc(uint32_t);
-/*<! io buffer */
-io_buffer_t* init_io_buffer(uint32_t size, uint8_t flags);
+/*!< io buffer */
+extern io_buffer_t* init_io_buffer(uint32_t size, uint8_t flags);
 // TODO: with fifo size will be wrong (base.S)
 extern uint32_t in_available(io_buffer_t* buffer);
 extern uint32_t out_available(io_buffer_t* buffer);
 
-/*<! dev id */
-extern void* id_to_dev(uint32_t id);	// only uses: clk, periph
-extern uint32_t dev_to_id(void* dev);	// only writes: clk, periph
-extern void enable_id(uint32_t id);
-extern void disable_id(uint32_t id);
-extern void enable_dev(void* dev);
-extern void disable_dev(void* dev);
+/*!< dev */
+void enable_dev(void* dev);
+void disable_dev(void* dev);
 
 
 

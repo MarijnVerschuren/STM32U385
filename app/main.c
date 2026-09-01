@@ -1,8 +1,9 @@
 #include "EXTI.h"
 #include "GPIO.h"
+#include "NVIC.h"
+#include "TIM.h"
 #include "base.h"
 #include "periph.h"
-#include "NVIC.h"
 #include "sys.h"
 
 
@@ -19,21 +20,33 @@ void EXTI0_handler(void) {
 	__asm volatile("nop");
 }
 
+void TIM1_UP_handler(void) {
+	TIM1->SR &= ~0b1UL;
+	__asm volatile("nop");
+}
+
 
 /*!<
  * app
  * */
 int main(void) {
+	set_SYS_tick_config(1);
+
 	config_GPIO(GPIOA, 15, GPIO_output | GPIO_open_drain);
 
 	config_EXTI_GPIO(GPIOA, 0, GPIO_pull_up, EXTI_FALLING | EXTI_IRQ);
-
 	NVIC_set_IRQ_priority(EXTI0_IRQn, 0);
 	NVIC_enable_IRQ(EXTI0_IRQn);
 
+	config_TIM(TIM1, 0, 12*100);	// 1/100 MHz
+	start_TIM_update_irq(TIM1);
+	NVIC_set_IRQ_priority(TIM1_UP_IRQn, 1);
+	NVIC_enable_IRQ(TIM1_UP_IRQn);
+	start_TIM(TIM1);
+
+
 	for (;;) {
-		for (volatile uint32_t i = 0; i < 0x7FFFF; i++) { __asm("nop"); }
 		GPIO_toggle(GPIOA, 15);
-		//NVIC_set_IRQ_pending(EXTI0_IRQn);
+		delay_ms(1000);
 	}
 }

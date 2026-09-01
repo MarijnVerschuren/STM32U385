@@ -15,12 +15,24 @@
 
 
 /*!< APB1 peripherals */
+#define TIM2					((TIM_t*)TIM2_BASE)
+#define TIM3					((TIM_t*)TIM3_BASE)
+#define TIM4					((TIM_t*)TIM4_BASE)
+#define TIM6					((TIM_t*)TIM6_BASE)
+#define TIM7					((TIM_t*)TIM7_BASE)
 
 
 /*!< APB2 peripherals */
+#define TIM1					((TIM_t*)TIM1_BASE)
+#define TIM8					((TIM_t*)TIM8_BASE)
+#define TIM12					((TIM_t*)TIM12_BASE)
+#define TIM15					((TIM_t*)TIM15_BASE)
+#define TIM16					((TIM_t*)TIM16_BASE)
+#define TIM17					((TIM_t*)TIM17_BASE)
 
 
 /*!< AHB1 peripherals */
+#define PWR						((PWR_t*)PWR_BASE)
 #define RCC						((RCC_t*)RCC_BASE)
 #define EXTI					((EXTI_t*)EXTI_BASE)
 
@@ -96,21 +108,65 @@ typedef struct {
  * peripheral types
  * */
 /*!< PWR */
-// typedef struct {
-// 	_IO uint32_t	CR;				/* power control                     0x00 */
-// 	_IO uint32_t	CSR;			/* power control and status          0x04 */
-// } PWR_t;
+typedef struct {
+	_IO uint32_t	CR[3];			/* power control                     0x00 */
+	_IO uint32_t	VOSCR;
+	_IO uint32_t	SVMCR;
+	_IO uint32_t	WUCR[3];
+		uint32_t	_0;
+	_IO uint32_t	BDCR;
+	_IO uint32_t	DBPR;
+		uint32_t	_1;
+	_IO uint32_t	SECCFGR;
+	_IO uint32_t	PRIVCFGR;
+	_IO uint32_t	SR;
+	_IO uint32_t	SVMR;
+		uint32_t	_2;
+	_IO uint32_t	WUSR;
+	_IO uint32_t	WUSCR;
+	_IO uint32_t	APCR;
+	_IO uint32_t	PUCRA;
+	_IO uint32_t	PDCRA;
+    _IO uint32_t	PUCRB;
+    _IO uint32_t	PDCRB;
+    _IO uint32_t	PUCRC;
+    _IO uint32_t	PDCRC;
+    _IO uint32_t	PUCRD;
+    _IO uint32_t	PDCRD;
+    _IO uint32_t	PUCRE;
+    _IO uint32_t	PDCRE;
+    _IO uint32_t	PUCRF;
+    _IO uint32_t	PDCRF;
+    _IO uint32_t	PUCRG;
+    _IO uint32_t	PDCRG;
+    _IO uint32_t	PUCRH;
+    _IO uint32_t	PDCRH;
+	// TODO
+} PWR_t;
 
 /*!< FLASH */
-// typedef struct {
-// 	_IO uint32_t	ACR;			/* access control                    0x00 */
-// 	_IO uint32_t	KEYR;			/* key                               0x04 */
-// 	_IO uint32_t	OPTKEYR;		/* option key                        0x08 */
-// 	_IO uint32_t	SR;				/* status                            0x0C */
-// 	_IO uint32_t	CR;				/* control                           0x10 */
-// 	_IO uint32_t	OPTCR;			/* option control                    0x14 */
-// 	_IO uint32_t	OPTCR1;			/* option control 1                  0x18 */
-// } FLASH_t;
+typedef struct {
+	_IO uint32_t	ACR;			/* access control                    0x00 */
+		uint32_t	_0;				/*                                   0x04 */
+	_IO uint32_t	KEYR;			/* key                               0x08 */
+	_IO uint32_t	SKEYR;			/* secure key                        0x0C */
+	_IO uint32_t	OPTKEYR;		/* option key                        0x10 */
+		uint32_t	_1;				/*                                   0x14 */
+	_IO uint32_t	PDKEYR[2];		/*                              0x18-0x1C */
+	_IO uint32_t	SR;				/*                                   0x20 */
+	_IO uint32_t	SSR;			/*                                   0x24 */
+	_IO uint32_t	CR;				/*                                   0x28 */
+	_IO uint32_t	SCR;			/*                                   0x2C */
+	_IO uint32_t	ECCORR;			/*                                   0x30 */
+	_IO uint32_t	ECCDETR;		/*                                   0x34 */
+	_IO uint32_t	OPSR;			/*                                   0x38 */
+		uint32_t	_2;				/*                                   0x3C */
+	_IO uint32_t	OPTR;			/*                                   0x40 */
+	_IO uint32_t	BOOTR[2];		/*                              0x44-0x48 */
+	_IO uint32_t	SBOOTR;			/*                                   0x4C */
+	// TODO
+} FLASH_t;
+
 
 /*!< RCC */
 typedef struct {
@@ -215,29 +271,36 @@ typedef struct {
 
 
 /*!< TIM */
-// typedef struct {
-// 	_IO uint32_t CR1;				/* control 1                         0x00 */
-// 	_IO uint32_t CR2;				/* control 2                         0x04 */
-// 	_IO uint32_t SMCR;				/* slave mode control                0x08 */
-// 	_IO uint32_t DIER;				/* DMA/interrupt enable              0x0C */
-// 	_IO uint32_t SR;				/* status                            0x10 */
-// 	_IO uint32_t EGR;				/* event generation                  0x14 */
-// 	_IO uint32_t CCMR1;				/* capture/compare mode 1            0x18 */
-// 	_IO uint32_t CCMR2;				/* capture/compare mode 2            0x1C */
-// 	_IO uint32_t CCER;				/* capture/compare enable            0x20 */
-// 	_IO uint32_t CNT;				/* counter                           0x24 */
-// 	_IO uint32_t PSC;				/* prescaler,                        0x28 */
-// 	_IO uint32_t ARR;				/* auto-reload                       0x2C */
-// 	_IO uint32_t RCR;				/* repetition counter                0x30 */
-// 	_IO uint32_t CCR1;				/* capture/compare 1                 0x34 */
-// 	_IO uint32_t CCR2;				/* capture/compare 2                 0x38 */
-// 	_IO uint32_t CCR3;				/* capture/compare 3                 0x3C */
-// 	_IO uint32_t CCR4;				/* capture/compare 4                 0x40 */
-// 	_IO uint32_t BDTR;				/* break and dead-time               0x44 */
-// 	_IO uint32_t DCR;				/* DMA control                       0x48 */
-// 	_IO uint32_t DMAR;				/* DMA address for full transfer     0x4C */
-// 	_IO uint32_t OR;				/* option                            0x50 */
-// } TIM_t;
+typedef struct {
+	_IO uint32_t CR1;				/* control 1                         0x00 */
+	_IO uint32_t CR2;				/* control 2                         0x04 */
+	_IO uint32_t SMCR;				/* slave mode control                0x08 */
+	_IO uint32_t DIER;				/* DMA/interrupt enable              0x0C */
+	_IO uint32_t SR;				/* status                            0x10 */
+	_IO uint32_t EGR;				/* event generation                  0x14 */
+	_IO uint32_t CCMR1;				/* capture/compare mode 1            0x18 */
+	_IO uint32_t CCMR2;				/* capture/compare mode 2            0x1C */
+	_IO uint32_t CCER;				/* capture/compare enable            0x20 */
+	_IO uint32_t CNT;				/* counter                           0x24 */
+	_IO uint32_t PSC;				/* prescaler,                        0x28 */
+	_IO uint32_t ARR;				/* auto-reload                       0x2C */
+	_IO uint32_t RCR;				/* repetition counter                0x30 */
+	_IO uint32_t CCR1;				/* capture/compare 1                 0x34 */
+	_IO uint32_t CCR2;				/* capture/compare 2                 0x38 */
+	_IO uint32_t CCR3;				/* capture/compare 3                 0x3C */
+	_IO uint32_t CCR4;				/* capture/compare 4                 0x40 */
+	_IO uint32_t BDTR;				/* break and dead-time               0x44 */
+	_IO uint32_t CCR5;				/* capture/compare 5                 0x48 */
+	_IO uint32_t CCR6;				/* capture/compare 6                 0x4C */
+	_IO uint32_t CCMR3;				/* capture/compare mode 3            0x50 */
+	_IO uint32_t DTR2;				/* deadtime 2                        0x54 */
+	_IO uint32_t ECR;				/* encoder control                   0x58 */
+	_IO uint32_t TISEL;				/* timer input selection             0x5C */
+	_IO uint32_t AF[2];				/* alternate function option         0x60 */
+		uint32_t _[221];			/*                          0x064 - 0x3D8 */
+	_IO uint32_t DCR;				/* DMA control                      0x3DC */
+	_IO uint32_t DMAR;				/* DMA address for full transfer    0x3E0 */
+} TIM_t;
 
 /*!< RTC */
 // typedef struct {

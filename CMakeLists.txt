@@ -62,9 +62,11 @@ add_executable(${PROJECT_NAME}
         ${CMAKE_SOURCE_DIR}/src/base.S
         ${CMAKE_SOURCE_DIR}/src/NVIC.S
         ${CMAKE_SOURCE_DIR}/src/GPIO.S
-#        ${CMAKE_SOURCE_DIR}/src/sys.c
 
+        ${CMAKE_SOURCE_DIR}/src/sys.c
         ${CMAKE_SOURCE_DIR}/src/EXTI.c
+        src/TIM.c
+        src/base.c
 )
 
 # list of modules to build the application
