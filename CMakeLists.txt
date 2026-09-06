@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
 
-# project name
-project(STM32U385 C ASM)
-
 # toolchain
 set(CMAKE_TOOLCHAIN_FILE "cmake/arm-none-eabi.cmake")
+
+# project name
+project(STM32U385 C ASM)
 
 # select linker script
 set(LINKER_SCRIPT "lnk/STM32U385.ld")
@@ -64,10 +64,40 @@ add_executable(${PROJECT_NAME}
 )
 
 # list of modules to build the application
+set(ZIG_SOURCE
+    ${CMAKE_SOURCE_DIR}/app/main.zig
+)
+
+set(ZIG_OBJECT
+    ${CMAKE_CURRENT_BINARY_DIR}/app_main.o
+)
+
+add_custom_command(
+    OUTPUT ${ZIG_OBJECT}
+    COMMAND ${CMAKE_COMMAND} -E make_directory
+            ${CMAKE_CURRENT_BINARY_DIR}
+    COMMAND zig build-obj
+            ${ZIG_SOURCE}
+            -target thumb-freestanding-eabi
+            -mcpu cortex_m33
+            -O Debug
+            -fno-unwind-tables
+            -femit-bin=${ZIG_OBJECT}
+            -I${CMAKE_SOURCE_DIR}/inc
+            -I${CMAKE_SOURCE_DIR}/test
+            -I${CMAKE_SOURCE_DIR}/lib
+    DEPENDS ${ZIG_SOURCE}
+    COMMENT "Compiling Zig: ${ZIG_SOURCE}"
+    VERBATIM
+)
+
 add_library(app_interface INTERFACE)
 target_sources(app_interface INTERFACE
-    ${CMAKE_SOURCE_DIR}/app/main.c
+    ${ZIG_OBJECT}
 )
+#target_sources(app_interface INTERFACE
+#    ${CMAKE_SOURCE_DIR}/app/main.c
+#)
 
 
 target_link_libraries(${PROJECT_NAME}

@@ -1,4 +1,4 @@
-const c = @cImport({
+const mcu = @cImport({
     @cInclude("EXTI.h");
     @cInclude("GPIO.h");
     @cInclude("NVIC.h");
@@ -10,23 +10,43 @@ const c = @cImport({
 
 
 
+///////
+// IRQ
+//
+export fn EXTI0_handler() void {
+    mcu.EXTI.*.FPR |= 0b1;
+    asm volatile ("nop");
+}
+
+export fn TIM1_UP_handler() void {
+	mcu.TIM1.*.SR &= 0xFFFFFFFE;
+    asm volatile ("nop");
+}
+
+
+
+///////
+// app
+//
 export fn main() noreturn {
-    sys_init();
+    mcu.sys_init();
+	// config LED
+	mcu.config_GPIO(mcu.GPIOA, 15, mcu.GPIO_output | mcu.GPIO_open_drain);
+	// config rotary SW
+	mcu.config_EXTI_GPIO(mcu.GPIOA, 0, mcu.GPIO_pull_up, mcu.EXTI_FALLING | mcu.EXTI_IRQ);
+	mcu.NVIC_set_IRQ_priority(mcu.EXTI0_IRQn, 0);
+	mcu.NVIC_enable_IRQ(mcu.EXTI0_IRQn);
+	// config TIM1
+	mcu.config_TIM(mcu.TIM1, 0, 96*100);	// 1/100 MHz
+	mcu.start_TIM_update_irq(mcu.TIM1);
+	mcu.NVIC_set_IRQ_priority(mcu.TIM1_UP_IRQn, 1);
+	mcu.NVIC_enable_IRQ(mcu.TIM1_UP_IRQn);
 
-	config_GPIO(GPIOA, 15, GPIO_output | GPIO_open_drain);
-
-	config_EXTI_GPIO(GPIOA, 0, GPIO_pull_up, EXTI_FALLING | EXTI_IRQ);
-	NVIC_set_IRQ_priority(EXTI0_IRQn, 0);
-	NVIC_enable_IRQ(EXTI0_IRQn);
-
-	config_TIM(TIM1, 0, 96*100);	// 1/100 MHz
-	start_TIM_update_irq(TIM1);
-	NVIC_set_IRQ_priority(TIM1_UP_IRQn, 1);
-	NVIC_enable_IRQ(TIM1_UP_IRQn);
-	start_TIM(TIM1);
+	// start TIM1
+	mcu.start_TIM(mcu.TIM1);
 
     while(true) {
-		delay_ms(100);
-		GPIO_toggle(GPIOA, 15);
+		mcu.delay_ms(40);
+		mcu.GPIO_toggle(mcu.GPIOA, 15);
 	}
 }
