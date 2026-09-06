@@ -66,13 +66,13 @@
  * */
 
 
-
 /*!<
  * AHB1 peripheral map
  * */
 #define PWR_BASE					(AHB1PERIPH_BASE + 0x10800UL)
 #define RCC_BASE					(AHB1PERIPH_BASE + 0x10C00UL)
 #define EXTI_BASE					(AHB1PERIPH_BASE + 0x12000UL)
+#define FLASH_BASE					(AHB1PERIPH_BASE + 0x02000UL)
 
 
 

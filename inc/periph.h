@@ -35,6 +35,7 @@
 #define PWR						((PWR_t*)PWR_BASE)
 #define RCC						((RCC_t*)RCC_BASE)
 #define EXTI					((EXTI_t*)EXTI_BASE)
+#define FLASH					((FLASH_t*)FLASH_BASE)
 
 
 
@@ -110,7 +111,7 @@ typedef struct {
 /*!< PWR */
 typedef struct {
 	_IO uint32_t	CR[3];			/* power control                     0x00 */
-	_IO uint32_t	VOSCR;
+	_IO uint32_t	VOS;
 	_IO uint32_t	SVMCR;
 	_IO uint32_t	WUCR[3];
 		uint32_t	_0;
@@ -176,7 +177,7 @@ typedef struct {
 	_IO uint32_t	CRRCR;			/* clock recovery RC                0x014 */
 	_IO uint32_t	_1;				/*                                  0x018 */
 	_IO uint32_t	CFGR[4];		/* clock configuration        0x01C-0x028 */
-		uint32_t	_2[8];			/*                            0x02C-0x04C */
+		uint32_t	_2[9];			/*                            0x02C-0x04C */
 	_IO uint32_t	CIER;			/* clock interrupt enable           0x050 */
 	_IO uint32_t	CIFR;			/* clock interrupt flag             0x054 */
 	_IO uint32_t	CICR;			/* clock interrupt clear            0x058 */

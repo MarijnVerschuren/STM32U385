@@ -30,7 +30,7 @@ void TIM1_UP_handler(void) {
  * app
  * */
 int main(void) {
-	set_SYS_tick_config(1);
+	sys_init();
 
 	config_GPIO(GPIOA, 15, GPIO_output | GPIO_open_drain);
 
@@ -38,15 +38,17 @@ int main(void) {
 	NVIC_set_IRQ_priority(EXTI0_IRQn, 0);
 	NVIC_enable_IRQ(EXTI0_IRQn);
 
-	config_TIM(TIM1, 0, 12*100);	// 1/100 MHz
+	config_TIM(TIM1, 0, 96*100);	// 1/100 MHz
 	start_TIM_update_irq(TIM1);
 	NVIC_set_IRQ_priority(TIM1_UP_IRQn, 1);
 	NVIC_enable_IRQ(TIM1_UP_IRQn);
 	start_TIM(TIM1);
 
+	// TODO zig!
+	//app();
 
 	for (;;) {
+		delay_ms(200);
 		GPIO_toggle(GPIOA, 15);
-		delay_ms(1000);
 	}
 }

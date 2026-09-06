@@ -20,12 +20,6 @@ set(CMAKE_C_FLAGS_MINSIZEREL "-Os -flto")
 add_compile_options(
         ${CPU_OPTIONS}
         $<$<COMPILE_LANGUAGE:C>:-std=c11>
-        $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
-        $<$<COMPILE_LANGUAGE:CXX>:-fms-extensions>
-        $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
-        $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-        $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
-        $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
         -fstrict-volatile-bitfields
         -ffunction-sections
 
